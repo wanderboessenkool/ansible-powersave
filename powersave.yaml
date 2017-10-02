@@ -2,4 +2,4 @@
 - hosts:
     - laptops
   roles:
-    - laptops
+    - laptop_powersave
