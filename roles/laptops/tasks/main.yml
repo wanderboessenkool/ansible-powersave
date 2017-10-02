@@ -11,3 +11,6 @@
 
 - name: snd_hda_intel
   import_tasks: snd_hda_intel.yml
+
+- name: tuned
+  import_tasks: tuned.yml

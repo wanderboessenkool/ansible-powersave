@@ -1,0 +1,24 @@
+---
+
+- name: ensure tuned is installed
+  dnf:
+    name: tuned
+    state: latest
+  become: true
+    
+
+- name: ensure tuned is enabled and started
+  service:
+    name: tuned
+    state: started
+    enabled: yes
+  become: true
+
+- name: get active tuned profile
+  command: tuned-adm active
+  register: tuned_active_profile
+  changed_when: False
+
+- name: set tuned profile to powersave
+  command: tuned-adm profile powersave
+  when: '"Current active profile: powersave" not in tuned_active_profile.stdout'
