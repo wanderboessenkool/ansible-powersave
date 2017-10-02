@@ -1,6 +1,6 @@
 ---
 
-- name: copy module config
+- name: copy i915 module config
   copy:
     src: i915.conf
     dest: /etc/modprobe.d/
