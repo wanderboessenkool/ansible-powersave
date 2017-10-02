@@ -1,0 +1,9 @@
+---
+
+- name: copy module config
+  copy:
+    src: snd_hda_intel.conf
+    dest: /etc/modprobe.d/
+  notify: rebuild dracut
+  become: true
+

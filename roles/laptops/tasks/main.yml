@@ -1,0 +1,13 @@
+---
+
+- name: udev rules
+  import_tasks: udev.yml
+
+- name: powertop
+  import_tasks: powertop.yml
+
+- name: i915
+  import_tasks: i915.yml
+
+- name: snd_hda_intel
+  import_tasks: snd_hda_intel.yml

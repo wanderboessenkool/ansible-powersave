@@ -1,0 +1,14 @@
+---
+
+- name: ensure powertop is installed
+  dnf:
+    name: powertop
+    state: latest
+  become: true
+    
+
+- name: ensure powertop is enabled
+  service:
+    name: powertop
+    enabled: yes
+  become: true

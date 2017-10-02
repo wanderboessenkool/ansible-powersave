@@ -1,0 +1,5 @@
+---
+
+- name: rebuild dracut
+  shell: "dracut -f"
+  become: true
