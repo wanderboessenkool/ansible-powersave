@@ -1,0 +1,16 @@
+---
+galaxy_info:
+  author: Wander Boessenkool
+  description: Basic powersaving for intel laptops running Fedora
+  min_ansible_version: 2.4
+  license: GPLv3
+  platforms:
+    - name: Fedora
+      versions:
+        - 26
+        - 25
+  categories:
+    - powersaving
+    - laptop
+    - fedora
+    - linux
