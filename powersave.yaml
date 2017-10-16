@@ -1,5 +1,0 @@
----
-- hosts:
-    - laptops
-  roles:
-    - laptop_powersave
