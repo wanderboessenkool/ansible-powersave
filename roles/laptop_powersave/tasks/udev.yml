@@ -5,12 +5,10 @@
     src: 50-usb_power_save.rules
     dest: /etc/udev/rules.d/
   notify: rebuild dracut
-  become: true
 
 - name: copy pci rules
   copy:
     src: 50-pci_power_save.rules
     dest: /etc/udev/rules.d/
   notify: rebuild dracut
-  become: true
 

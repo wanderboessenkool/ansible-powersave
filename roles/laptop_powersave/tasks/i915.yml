@@ -5,5 +5,4 @@
     src: i915.conf
     dest: /etc/modprobe.d/
   notify: rebuild dracut
-  become: true
 

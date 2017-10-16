@@ -2,4 +2,3 @@
 
 - name: rebuild dracut
   command: "dracut -f"
-  become: true
