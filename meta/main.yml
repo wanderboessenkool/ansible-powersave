@@ -9,7 +9,7 @@ galaxy_info:
       versions:
         - 26
         - 25
-  categories:
+  galaxy_tags:
     - powersaving
     - laptop
     - fedora
