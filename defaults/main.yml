@@ -1,5 +1,5 @@
 ---
-# Whether to install en enable, or disable, the powertop tool and service
+# Whether to install and enable, or disable, the powertop tool and service
 laptop_powersave_enable_powertop: true
 
 # Whether or not to install and enable tuned
