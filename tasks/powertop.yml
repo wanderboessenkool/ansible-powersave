@@ -4,9 +4,11 @@
   dnf:
     name: powertop
     state: latest
+  when: laptop_powersave_enable_powertop
     
 
 - name: ensure powertop is enabled
   service:
     name: powertop
     enabled: yes
+  when: laptop_powersave_enable_powertop

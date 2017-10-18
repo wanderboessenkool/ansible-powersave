@@ -11,6 +11,14 @@ This role configures powersaving for:
 * Powertop service
 * Tuned profiles
 
+Variables
+---------
+
+The following variables can be set to influence the roles behaviour:
+
+* laptop_powersave_enable_powertop (Default: True): Whether or not to install ```powertop``` and enable the ```powertop.service``` one-shot tuner.
+
+
 Contact
 -------
 
