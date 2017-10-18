@@ -11,6 +11,9 @@ galaxy_info:
         - 25
   galaxy_tags:
     - powersaving
+    - powersave
     - laptop
     - fedora
     - linux
+    - udev
+    - powertop
