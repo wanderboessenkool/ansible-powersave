@@ -1,2 +1,24 @@
 ---
-laptop_powersave_enable_powertop: True
+# Whether to install en enable, or disable, the powertop tool and service
+laptop_powersave_enable_powertop: true
+
+# Whether or not to install and enable tuned
+laptop_powersave_enable_tuned: true
+
+# Which tuned profile to apply by default
+laptop_powersave_tuned_profile: powersave
+
+# Enable i915 tuning
+laptop_powersave_i915_tuning: true
+
+# Enable snd_hda_intel tuning
+laptop_powersave_snd_hda_intel_tuning: true
+
+# Whether or not to apply general usb/pci powersaving
+laptop_powersave_enable_usb_powersave: true
+laptop_powersave_enable_pci_powersave: true
+
+# list of devices to exclude from usb powersaving, list vendor/device IDs
+laptop_powersave_usb_excludes:
+  - {vendor: '0cf3', device: 'e300'}
+  - {vendor: '0bda', device: '8153'} 

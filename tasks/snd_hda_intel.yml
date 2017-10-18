@@ -5,4 +5,12 @@
     src: snd_hda_intel.conf
     dest: /etc/modprobe.d/
   notify: rebuild dracut
+  when: laptop_powersave_snd_hda_intel_tuning
+
+- name: remove snd_hda_intel module configuration
+  file:
+    path: /etc/modprobe.d/snd_hda_intel.conf
+    state: absent
+  notify: rebuild dracut
+  when: not laptop_powersave_snd_hda_intel_tuning
 

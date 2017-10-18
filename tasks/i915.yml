@@ -5,4 +5,12 @@
     src: i915.conf
     dest: /etc/modprobe.d/
   notify: rebuild dracut
+  when: laptop_powersave_i915_tuning
 
+- name: remove i915 module configuration
+  file:
+    path: /etc/modprobe.d/i915.conf
+    state: absent
+  notify: rebuild dracut
+  when: not laptop_powersave_i915_tuning
+  

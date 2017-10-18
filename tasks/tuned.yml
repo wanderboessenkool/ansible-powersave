@@ -4,19 +4,31 @@
   dnf:
     name: tuned
     state: latest
+  when: laptop_powersave_enable_tuned
     
 
-- name: ensure tuned is enabled and started
+- name: Enable and start tuned.service
   service:
     name: tuned
     state: started
     enabled: yes
+  when: laptop_powersave_enable_tuned
+
+- name: Disable and stop tuned.service
+  service:
+    name: tuned
+    state: stopped
+    enabled: no
+  when: not laptop_powersave_enable_tuned
 
 - name: get active tuned profile
-  command: tuned-adm active
-  register: tuned_active_profile
+  shell: "tuned-adm active | grep 'Current active profile: {{ laptop_powersave_tuned_profile }}'"
+  register: laptop_powersave_tuned_active_profile
   changed_when: False
+  failed_when: laptop_powersave_tuned_active_profile.rc >= 2
+  when: laptop_powersave_enable_tuned
 
-- name: set tuned profile to powersave
-  command: tuned-adm profile powersave
-  when: '"Current active profile: powersave" not in tuned_active_profile.stdout'
+- name: set tuned profile to {{ laptop_powersave_tuned_profile }}
+  command: tuned-adm profile {{ laptop_powersave_tuned_profile }}
+  when: (laptop_powersave_enable_tuned) and
+        (laptop_powersave_tuned_active_profile.rc!=0)

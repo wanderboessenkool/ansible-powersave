@@ -12,3 +12,9 @@
     name: powertop
     enabled: yes
   when: laptop_powersave_enable_powertop
+
+- name: ensure powertop is disabled
+  service:
+    name: powertop
+    enabled: no
+  when: not laptop_powersave_enable_powertop
