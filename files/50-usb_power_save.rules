@@ -1,9 +1,0 @@
-#Exclude bluetooth usb
-ACTION=="add", SUBSYSTEM=="usb", ATTRS{idVendor}=="0cf3", ATTRS{idProduct}=="e300", GOTO="ENDUSBPOWERSAVE"
-
-#Exclude da200 ethernet
-ACTION=="add", SUBSYSTEM=="usb", ATTRS{idVendor}=="0bda", ATTRS{idProduct}=="8153", GOTO="ENDUSBPOWERSAVE"
-
-#enable pwoersaving for all usb devices
-ACTION=="add", SUBSYSTEM=="usb", TEST=="power/control", ATTR{power/control}="auto"
-LABEL="ENDUSBPOWERSAVE"

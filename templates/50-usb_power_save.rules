@@ -1,0 +1,9 @@
+#Insert excludes here, in the format:
+#ACTION=="add", SUBSYSTEM=="usb", ATTRS{idVendor}=="VENDORID", ATTRS{idProduct}=="PRODUCTID", GOTO="ENDUSBPOWERSAVE"
+{% for laptop_powersave_usb_device in laptop_powersave_usb_excludes %}
+ACTION=="add", SUBSYSTEM=="usb", ATTRS{idVendor}=="{{ laptop_powersave_usb_device.vendor }}", ATTRS{idProduct}=="{{ laptop_powersave_usb_device.product }}", GOTO="ENDUSBPOWERSAVE"
+{% endfor %}
+
+#enable pwoersaving for all usb devices
+ACTION=="add", SUBSYSTEM=="usb", TEST=="power/control", ATTR{power/control}="auto"
+LABEL="ENDUSBPOWERSAVE"

@@ -20,5 +20,5 @@ laptop_powersave_enable_pci_powersave: true
 
 # list of devices to exclude from usb powersaving, list vendor/device IDs
 laptop_powersave_usb_excludes:
-  - {vendor: '0cf3', device: 'e300'}
-  - {vendor: '0bda', device: '8153'} 
+  - {vendor: '0cf3', product: 'e300'}
+  - {vendor: '0bda', product: '8153'} 

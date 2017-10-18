@@ -1,14 +1,29 @@
 ---
 
-- name: copy usb rules
-  copy:
+- name: create usb udev rules
+  template:
     src: 50-usb_power_save.rules
     dest: /etc/udev/rules.d/
   notify: rebuild dracut
+  when: laptop_powersave_enable_usb_powersave
 
-- name: copy pci rules
+- name: create pci udev rules
   copy:
     src: 50-pci_power_save.rules
     dest: /etc/udev/rules.d/
   notify: rebuild dracut
+  when: laptop_powersave_enable_pci_powersave
 
+- name: remove usb udev rules
+  file:
+    path: /etc/udev/rules.d/50-usb_power_save.rules
+    state: absent
+  notify: rebuild dracut
+  when: not laptop_powersave_enable_usb_powersave
+  
+- name: remove pci udev rules
+  file:
+    path: /etc/udev/rules.d/50-pci_power_save.rules
+    state: absent
+  notify: rebuild dracut
+  when: not laptop_powersave_enable_pci_powersave
