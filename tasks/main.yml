@@ -1,4 +1,8 @@
 ---
+- name: Assert that we are on a Red Hat style system
+  assert:
+    that: 
+      - ( ansible_os_family  == 'RedHat' )
 
 - name: udev rules
   import_tasks: udev.yml
