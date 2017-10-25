@@ -5,7 +5,6 @@
     name: powertop
     state: latest
   when: laptop_powersave_enable_powertop
-    
 
 - name: ensure powertop is enabled
   service:
