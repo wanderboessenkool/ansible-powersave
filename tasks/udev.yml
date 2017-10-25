@@ -20,7 +20,7 @@
     state: absent
   notify: rebuild dracut
   when: not laptop_powersave_enable_usb_powersave
-  
+
 - name: remove pci udev rules
   file:
     path: /etc/udev/rules.d/50-pci_power_save.rules
